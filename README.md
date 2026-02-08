@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>مكتبة الخطوط العربية</title>
   
-  <meta name="description" content="تحميل خطوط عربية مجانية من Google Fonts - معاينة وروابط تحميل مباشرة"/>
+  <meta name="description" content="تحميل خطوط عربية مجانية من Google Fonts"/>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,6 @@
       --accent: #58a6ff;
       --accent-dark: #388bfd;
       --border: #30363d;
-      --hover: #21262d;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -104,37 +103,42 @@
     }
 
     .preview {
-      padding: 2.8rem 1.8rem;
-      font-size: 2.4rem;
+      padding: 2.5rem 1rem;
+      font-size: 3.2rem;
       text-align: center;
-      min-height: 160px;
+      min-height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,0,0,0.2);
-      line-height: 1.5;
+      background: rgba(0,0,0,0.25);
       direction: rtl;
     }
 
     .info {
-      padding: 1.5rem 1.6rem;
+      padding: 1.4rem 1.5rem;
     }
 
-    .font-name {
+    .font-name-ar {
       font-size: 1.45rem;
       margin-bottom: 0.7rem;
       color: var(--accent);
+    }
+
+    .font-name-en {
+      font-size: 0.95rem;
+      color: #8b949e;
+      margin-bottom: 0.5rem;
     }
 
     .actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.2rem;
+      margin-top: 1.1rem;
     }
 
     .btn {
-      padding: 0.7rem 1.5rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
@@ -165,9 +169,7 @@
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .fonts-grid { grid-template-columns: 1fr; }
-      .preview { font-size: 2.1rem; min-height: 140px; }
+      .preview { font-size: 2.6rem; min-height: 120px; }
     }
   </style>
 </head>
@@ -175,13 +177,13 @@
 
 <header>
   <h1>مكتبة الخطوط العربية</h1>
-  <p class="subtitle">أكثر من 60 خط عربي مجاني من Google Fonts — معاينة + تحميل مباشر</p>
+  <p class="subtitle">خطوط عربية مجانية من Google Fonts — معاينة وتحميل مباشر</p>
 </header>
 
 <div class="container">
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="ابحث عن اسم الخط (مثال: cairo tajawal amiri noto)">
+    <input type="text" id="searchInput" placeholder="ابحث عن اسم الخط (مثال: كايرو، تاجوال، أميري، نوتو)">
   </div>
 
   <div class="count" id="fontCount"></div>
@@ -191,50 +193,63 @@
 </div>
 
 <footer>
-  <p>جميع الخطوط مأخوذة من Google Fonts — مجانية 100% للاستخدام الشخصي والتجاري</p>
-  <p style="margin-top:0.8rem;">
-    عدد الخطوط الحالي: <span id="countNumber">0</span> — يمكنك إضافة المزيد في مصفوفة <code>arabicFonts</code>
-  </p>
+  <p>جميع الخطوط من Google Fonts — مجانية للاستخدام الشخصي والتجاري</p>
 </footer>
 
 <script>
-// قائمة الخطوط
+// قائمة الخطوط مع أسمائها بالعربية
 const arabicFonts = [
-  "Almarai", "Amiri", "Amiri Quran", "Aref Ruqaa", "Aref Ruqaa Ink",
-  "Baloo Bhaijaan 2", "Blaka", "Blaka Hollow", "Cairo", "Changa",
-  "El Messiri", "IBM Plex Sans Arabic", "Jomhuria", "Katibeh",
-  "Klee One", "Lalezar", "Lateef", "Lemonada", "Mada",
-  "Mirza", "Noto Kufi Arabic", "Noto Naskh Arabic", "Noto Nastaliq Urdu",
-  "Noto Sans Arabic", "Noto Serif Arabic", "Readex Pro", "Reem Kufi",
-  "Reem Kufi Ink", "Rakkas", "Scheherazade New", "Tajawal",
-  "Alkalami", "Markazi Text", "Noto Sans Arabic UI",
-  "Cairo Play", "Tajawal", "Amiri Italic", "El Messiri Display",
-  "Beiruti", "IBM Plex Sans Arabic", "Changa", "Mada", "Lemonada",
-  "Lateef", "Scheherazade New", "Amiri Quran", "Aref Ruqaa Ink",
-  "Blaka Gothic", "Jomhuria", "Katibeh", "Lalezar",
-  "Mirza", "Rakkas", "Reem Kufi Ink", "Baloo Bhaijaan 2",
-  "Klee One", "Almarai", "Tajawal Variable", "Cairo Variable",
-  // أضف المزيد هنا إذا بغيتي
+  { en: "Almarai", ar: "المرآة" },
+  { en: "Amiri", ar: "أميري" },
+  { en: "Amiri Quran", ar: "أميري قرآن" },
+  { en: "Aref Ruqaa", ar: "عارف رقعة" },
+  { en: "Aref Ruqaa Ink", ar: "عارف رقعة حبر" },
+  { en: "Baloo Bhaijaan 2", ar: "بالو بهيجان 2" },
+  { en: "Cairo", ar: "كايرو" },
+  { en: "Changa", ar: "تشانجا" },
+  { en: "El Messiri", ar: "المسيري" },
+  { en: "Jomhuria", ar: "جمهورية" },
+  { en: "Katibeh", ar: "كاتبه" },
+  { en: "Lateef", ar: "لطيف" },
+  { en: "Lemonada", ar: "ليمونادا" },
+  { en: "Mada", ar: "مدى" },
+  { en: "Mirza", ar: "ميرزا" },
+  { en: "Noto Kufi Arabic", ar: "نوتو كوفي عربي" },
+  { en: "Noto Naskh Arabic", ar: "نوتو نسخ عربي" },
+  { en: "Noto Sans Arabic", ar: "نوتو سانس عربي" },
+  { en: "Noto Serif Arabic", ar: "نوتو سيرف عربي" },
+  { en: "Readex Pro", ar: "ريدكس برو" },
+  { en: "Reem Kufi", ar: "ريم كوفي" },
+  { en: "Rakkas", ar: "ركاس" },
+  { en: "Scheherazade New", ar: "شهرزاد جديد" },
+  { en: "Tajawal", ar: "تاجوال" },
+  { en: "Alkalami", ar: "القلمي" },
+  { en: "Markazi Text", ar: "مركزي نص" },
+  { en: "Beiruti", ar: "بيروتي" },
+  { en: "Klee One", ar: "كلي وان" },
+  { en: "Lalezar", ar: "لالزار" },
+  // زيد الخطوط اللي بغيتي هنا بنفس الطريقة
 ];
 
-// توليد الكروت تلقائياً
+
+// توليد الكروت
 const grid = document.getElementById('fontsGrid');
-const countEl = document.getElementById('countNumber');
 const totalCountEl = document.getElementById('fontCount');
 
 arabicFonts.forEach(font => {
-  const safeFont = font.replace(/ /g, '+').replace(/,/g, '%2C');
+  const safeFont = font.en.replace(/ /g, '+').replace(/,/g, '%2C');
 
   const card = document.createElement('div');
   card.className = 'font-card';
-  card.style.fontFamily = `"${font}", "Segoe UI", sans-serif`;
+  card.style.fontFamily = `"${font.en}", sans-serif`;
 
   card.innerHTML = `
     <div class="preview">
-      ${font} – أبجد هوز حطي كلمن سقط صفر ضرب جدع فيه ثم خذ قلمك ورسم خطاً مستقيماً والحمد لله
+      ما شاء الله
     </div>
     <div class="info">
-      <div class="font-name">${font}</div>
+      <div class="font-name-ar">${font.ar}</div>
+      <div class="font-name-en">${font.en}</div>
       <div class="actions">
         <a href="https://fonts.google.com/download?family=${safeFont}" class="btn btn-download" target="_blank" rel="noopener">تحميل</a>
         <a href="https://fonts.google.com/specimen/${safeFont}" class="btn btn-view" target="_blank" rel="noopener">معاينة</a>
@@ -247,10 +262,9 @@ arabicFonts.forEach(font => {
 
 // تحديث العدد
 const total = arabicFonts.length;
-countEl.textContent = total;
 totalCountEl.textContent = `عدد الخطوط المعروضة: ${total}`;
 
-// البحث
+// البحث (يبحث في الاسم العربي والإنجليزي)
 const searchInput = document.getElementById('searchInput');
 const fontCards = document.querySelectorAll('.font-card');
 
@@ -259,8 +273,9 @@ searchInput.addEventListener('input', function() {
   let visible = 0;
 
   fontCards.forEach(card => {
-    const name = card.querySelector('.font-name').textContent.toLowerCase();
-    const show = name.includes(query) || query === '';
+    const nameAr = card.querySelector('.font-name-ar').textContent.toLowerCase();
+    const nameEn = card.querySelector('.font-name-en').textContent.toLowerCase();
+    const show = nameAr.includes(query) || nameEn.includes(query) || query === '';
     card.style.display = show ? '' : 'none';
     if (show) visible++;
   });
