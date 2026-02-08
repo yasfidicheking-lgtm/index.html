@@ -3,146 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>عينة الخطوط العربية</title>
+  <title>محول خطوط عربية - أكثر من 25 خط</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Cairo:wght@200..1000&family=Changa:wght@200..800&family=Dubai:wght@400;700&family=El+Messiri:wght@400..700&family=Harmattan:wght@400;700&family=Jomhuria&family=Lalezar&family=Lateef:wght@200..800&family=Markazi+Text:wght@400..700&family=Mirza:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400..700&family=Noto+Sans+Arabic:wght@100..900&family=Readex+Pro:wght@160..900&family=Reem+Kufi:wght@400..700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Scheherazade+New&family=Reem+Kufi&family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&family=Changa:wght@400;500;600;700&family=El+Messiri:wght@400;500;600;700&family=Almarai:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;500;600&family=Al+Qalam:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Baloo+Bhaijaan+2:wght@400;500;600&family=Lateef:wght@400;600&family=Mirza:wght@400;500;600&family=Katibeh&display=swap" rel="stylesheet">
-
+  <!-- خطوط إضافية من مصادر أخرى (CDN أو روابط مباشرة) -->
   <style>
+    @font-face {
+      font-family: 'Arabic Typesetting';
+      src: url('https://cdn.jsdelivr.net/gh/google/fonts@master/ofl/arabictypesetting/ArabicTypesetting-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Traditional Arabic';
+      src: url('https://fonts.cdnfonts.com/s/14879/Traditional-Arabic.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'KFGQPC Uthmanic Script';
+      src: url('https://cdn.jsdelivr.net/gh/aliftype/qpc-uthmanic@master/KFGQPC-Uthmanic-Script-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Al Qalam';
+      src: url('https://cdn.jsdelivr.net/gh/fontsource/al-qalam@latest/files/al-qalam-arabic-400-normal.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Geeza Pro';
+      src: url('https://cdn.jsdelivr.net/gh/fontsource/geeza-pro@latest/files/geeza-pro-arabic-400-normal.woff2') format('woff2');
+    }
+
     body {
-      font-family: system-ui, sans-serif;
-      background: #f8fafc;
+      font-family: 'Cairo', 'Noto Sans Arabic', system-ui, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
       margin: 0;
-      padding: 20px;
+      padding: 20px 15px;
+      min-height: 100vh;
+      direction: rtl;
+      text-align: right;
     }
-    header {
-      text-align: center;
-      margin-bottom: 1.8rem;
+
+    .container { max-width: 960px; margin: 0 auto; }
+    h1 { text-align: center; color: #58a6ff; margin-bottom: 40px; font-size: 2.3rem; }
+
+    .select-wrapper {
+      margin: 0 auto 40px;
+      max-width: 580px;
     }
-    h1 {
-      color: #f97316;
-      font-size: 2.6rem;
-      margin: 0 0 0.6rem;
-    }
-    #search {
+
+    #fontSelect {
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      padding: 14px 16px;
-      font-size: 1.1rem;
-      border: 2px solid #e2e8f0;
+      padding: 16px 24px;
+      font-size: 1.35rem;
       border-radius: 12px;
-      display: block;
+      border: 1px solid #30363d;
+      background: #161b22;
+      color: white;
+      font-family: inherit;
     }
-    #search:focus {
-      border-color: #f97316;
+
+    #fontSelect:focus {
       outline: none;
-      box-shadow: 0 0 0 4px rgba(249,115,22,0.15);
+      border-color: #58a6ff;
+      box-shadow: 0 0 0 4px rgba(88,166,255,0.25);
     }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
+
+    .preview-area {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 35px;
+      min-height: 260px;
+      font-size: 2.1rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
     }
-    .card {
-      background: white;
-      border-radius: 14px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      transition: all 0.25s ease;
-      cursor: pointer;
-      text-align: center;
+
+    .placeholder {
+      color: #8b949e;
+      font-style: italic;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.14);
-    }
-    .font-title {
-      font-size: 1.45rem;
-      font-weight: bold;
-      color: #1d4ed8;
-      margin-bottom: 1rem;
-    }
-    .preview {
-      font-size: 2.4rem;
-      line-height: 1.7;
-      min-height: 90px;
-      color: #111827;
-      margin-bottom: 0.8rem;
-    }
-    .category {
-      font-size: 0.95rem;
-      color: #64748b;
+
+    label {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+      color: #c9d1d9;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>عينة الخطوط العربية</h1>
-  </header>
+<div class="container">
+  <h1>محول الخطوط العربية</h1>
 
-  <input type="search" id="search" placeholder="ابحث عن اسم الخط..." autocomplete="off">
+  <div class="select-wrapper">
+    <label for="fontSelect">اختر الخط:</label>
+    <select id="fontSelect">
+      <option value="Amiri">أميري</option>
+      <option value="Amiri Quran">أميري - قرآن</option>
+      <option value="Scheherazade New">شهرزاد جديد</option>
+      <option value="Cairo">القاهرة</option>
+      <option value="Tajawal">تاجوال</option>
+      <option value="Noto Kufi Arabic">نوتو كوفي عربي</option>
+      <option value="Noto Naskh Arabic">نوتو نسخ عربي</option>
+      <option value="Noto Sans Arabic">نوتو سانس عربي</option>
+      <option value="Reem Kufi">ريم كوفي</option>
+      <option value="Readex Pro">ريديكس برو</option>
+      <option value="Changa">تشانجا</option>
+      <option value="Lateef">لطيف</option>
+      <option value="Harmattan">هارماتان</option>
+      <option value="Mirza">ميرزا</option>
+      <option value="Markazi Text">مركزي تكست</option>
+      <option value="Jomhuria">جمهورية</option>
+      <option value="Lalezar">لالزار</option>
+      <option value="Arabic Typesetting">الطباعة العربية</option>
+      <option value="Traditional Arabic">عربي تقليدي</option>
+      <option value="KFGQPC Uthmanic Script">خط عثماني (KFGQPC)</option>
+      <option value="Al Qalam">القلم</option>
+      <option value="Geeza Pro">جيزة برو</option>
+      <!-- يمكنك إضافة المزيد هنا لاحقاً -->
+    </select>
+  </div>
 
-  <div class="container" id="fontContainer"></div>
+  <label for="previewArea">اكتب النص هنا للتجربة:</label>
+  <div id="previewArea" class="preview-area" contenteditable="true">
+اكتب أو الصق النص هنا وسيتغير الخط تلقائياً
+  </div>
+</div>
 
-  <script>
-    const fonts = [
-      { name: "Amiri", family: "'Amiri', serif", category: "نسخي تقليدي" },
-      { name: "Amiri Quran", family: "'Amiri Quran', serif", category: "مصحف" },
-      { name: "Scheherazade New", family: "'Scheherazade New', serif", category: "نسخي أدبي" },
-      { name: "Reem Kufi", family: "'Reem Kufi', sans-serif", category: "كوفي عصري" },
-      { name: "Cairo", family: "'Cairo', sans-serif", category: "حديث واضح" },
-      { name: "Tajawal", family: "'Tajawal', sans-serif", category: "عصري نظيف" },
-      { name: "Changa", family: "'Changa', sans-serif", category: "جريء مميز" },
-      { name: "El Messiri", family: "'El Messiri', sans-serif", category: "أنيق عصري" },
-      { name: "Almarai", family: "'Almarai', sans-serif", category: "بسيط واضح" },
-      { name: "Noto Naskh Arabic", family: "'Noto Naskh Arabic', serif", category: "نسخ كلاسيكي" },
-      { name: "Noto Kufi Arabic", family: "'Noto Kufi Arabic', sans-serif", category: "كوفي حديث" },
-      { name: "Readex Pro", family: "'Readex Pro', sans-serif", category: "حديث قوي" },
-      { name: "Al Qalam", family: "'Al Qalam', cursive", category: "ديواني" },
-      { name: "Aref Ruqaa", family: "'Aref Ruqaa', serif", category: "رقعة" },
-      { name: "Lateef", family: "'Lateef', serif", category: "نسخي أنيق" },
-      { name: "Mirza", family: "'Mirza', cursive", category: "يدوي" },
-      { name: "Katibeh", family: "'Katibeh', serif", category: "خطاط" },
-      // أضف أي خطوط أخرى إذا بغيتي
-    ];
+<script>
+  const select = document.getElementById('fontSelect');
+  const preview = document.getElementById('previewArea');
 
-    const container = document.getElementById("fontContainer");
-    const searchInput = document.getElementById("search");
+  function changeFont() {
+    const fontName = select.value;
+    preview.style.fontFamily = `"${fontName}", "Noto Sans Arabic", "Segoe UI", sans-serif`;
+  }
 
-    function renderFonts(filtered) {
-      container.innerHTML = "";
-      filtered.forEach(font => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="font-title">${font.name}</div>
-          <div class="preview" style="font-family:${font.family}">
-            الحمد لله رب العالمين
-          </div>
-          <div class="category">${font.category}</div>
-        `;
-        card.addEventListener("click", () => {
-          window.location.href = `font.html?name=\( {encodeURIComponent(font.name)}&family= \){encodeURIComponent(font.family)}`;
-        });
-        container.appendChild(card);
-      });
+  select.addEventListener('change', changeFont);
+
+  // إزالة placeholder عند الكتابة
+  preview.addEventListener('input', function() {
+    if (this.textContent.trim() !== '') {
+      this.classList.remove('placeholder');
+    } else {
+      this.classList.add('placeholder');
     }
+  });
 
-    renderFonts(fonts);
+  // تشغيل أول مرة
+  changeFont();
+</script>
 
-    searchInput.addEventListener("input", () => {
-      const term = searchInput.value.trim().toLowerCase();
-      const filtered = term 
-        ? fonts.filter(f => f.name.toLowerCase().includes(term) || f.category.toLowerCase().includes(term))
-        : fonts;
-      renderFonts(filtered);
-    });
-  </script>
 </body>
 </html>
