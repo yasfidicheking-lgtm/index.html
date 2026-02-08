@@ -131,43 +131,45 @@
 
   <script>
     let allBooks = [];
+    // رسالة تحميل مؤقتة
+document.getElementById("books").innerHTML = 
+  '<p style="text-align:center; padding:3rem; color:#718096;">جاري تحميل الكتب...</p>';
 
-    fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions.json")
-      .then(res => {
-        if (!res.ok) throw new Error("مشكلة في جلب البيانات");
-        return res.json();
-      })
-      .then(data => {
-        allBooks = data;
-        displayBooks(allBooks);
-      })
-      .catch(err => {
-        console.error(err);
-        document.getElementById("books").innerHTML = 
-          '<p style="text-align:center; color:#e53e3e; padding:2rem;">حدث خطأ أثناء تحميل الكتب. حاول لاحقًا.</p>';
-      });
+    fetch("https://hadithapi.vercel.app/api/books")
+  .then(res => {
+    if (!res.ok) throw new Error("مشكلة في جلب البيانات");
+    return res.json();
+  })
+  .then(data => {
+    allBooks = data.books || data;  // بعض الـ APIs كيعطيو {books: [...]}
+    displayBooks(allBooks);
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("books").innerHTML = 
+      '<p style="text-align:center; color:#e53e3e; padding:2rem;">حدث خطأ أثناء تحميل الكتب. حاول لاحقًا.</p>';
+  });
 
     function displayBooks(books) {
-      const container = document.getElementById("books");
-      container.innerHTML = "";
+  const container = document.getElementById("books");
+  container.innerHTML = "";
 
-      if (books.length === 0) {
-        container.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:2rem; color:#718096;">لا توجد نتائج مطابقة</p>';
-        return;
-      }
+  if (!books || books.length === 0) {
+    container.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:2rem; color:#718096;">لا توجد نتائج مطابقة</p>';
+    return;
+  }
 
-      books.forEach(book => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${book.name || "غير معروف"}</h3>
-          <p>اللغة: ${book.language || "—"}</p>
-          ${book.author ? `<p>المؤلف: ${book.author}</p>` : ""}
-        `;
-        container.appendChild(card);
-      });
+  books.forEach(book => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${book.book_name || book.name || "غير معروف"}</h3>
+      <p>اللغة: ${book.language || "غير محدد"}</p>
+      ${book.writer ? `<p>المؤلف: ${book.writer}</p>` : ""}
+    `;
+    container.appendChild(card);
+  });
     }
-
     document.getElementById("search").addEventListener("input", function() {
       const value = this.value.trim().toLowerCase();
       const filtered = allBooks.filter(book =>
