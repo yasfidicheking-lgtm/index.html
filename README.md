@@ -1,114 +1,186 @@
-<!DOCTYPE html>
+د<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موسوعة الحديث الشريف</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>عينة الخطوط العربية</title>
 
-<style>
-body{
-    margin:0;
-    font-family:Tahoma, Arial;
-    background:#f4f6f9;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-header{
-    background:#0d6efd;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
+  <!-- بعض الخطوط الشائعة من Google Fonts (يمكنك إضافة المزيد) -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Reem+Kufi:wght@400;500;600&family=Changa:wght@400;500;600&family=El+Messiri:wght@400;500;600;700&family=Almarai:wght@300;400;700&family=Almarai:wght@800&display=swap" rel="stylesheet">
 
-.search-box{
-    text-align:center;
-    margin:20px;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-input{
-    padding:10px;
-    width:80%;
-    max-width:400px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
-    padding:20px;
-}
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
 
-.card{
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
 
-.card:hover{
-    transform:scale(1.03);
-}
+    .controls {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
 
-footer{
-    text-align:center;
-    padding:15px;
-    background:#eee;
-    margin-top:20px;
-}
-</style>
+    #demo-text {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.25rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .font-size-slider {
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .font-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: all 0.22s ease;
+      overflow: hidden;
+    }
+
+    .font-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .font-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #1d4ed8;
+    }
+
+    .preview {
+      font-size: 1.6rem;
+      line-height: 2;
+      min-height: 120px;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-    <h1>📖 موسوعة الحديث الشريف</h1>
-    <p>جميع كتب الحديث من API مفتوح</p>
-</header>
+  <header>
+    <h1>عينة الخطوط العربية</h1>
+    <p>تجربة الخطوط العربية الشائعة مباشرة</p>
+  </header>
 
-<div class="search-box">
-    <input type="text" id="search" placeholder="ابحث عن كتاب حديث...">
-</div>
+  <div class="controls">
+    <input type="text" id="demo-text" value="الحمد لله رب العالمين • اكتب نصك هنا لتجربة الخطوط" placeholder="اكتب نصك هنا...">
+    <div>
+      <label for="font-size">حجم النص: <span id="size-value">28</span>px</label><br>
+      <input type="range" id="font-size" class="font-size-slider" min="16" max="60" value="28">
+    </div>
+  </div>
 
-<div class="container" id="books"></div>
+  <div class="container" id="fonts-container"></div>
 
-<footer>
-    © 2026 - موقع الحديث الشريف
-</footer>
+  <footer>
+    جميع الخطوط من Google Fonts • © 2026
+  </footer>
 
-<script>
-let allBooks = [];
+  <script>
+    const fonts = [
+      { name: "Amiri", family: "'Amiri', serif", category: "تقليدي / كتابي" },
+      { name: "Cairo", family: "'Cairo', sans-serif", category: "حديث • واضح" },
+      { name: "Tajawal", family: "'Tajawal', sans-serif", category: "عصري • نظيف" },
+      { name: "Noto Naskh Arabic", family: "'Noto Naskh Arabic', serif", category: "ناسخ كلاسيكي" },
+      { name: "Reem Kufi", family: "'Reem Kufi', sans-serif", category: "كوفي عصري" },
+      { name: "Changa", family: "'Changa', sans-serif", category: "جريء • مميز" },
+      { name: "El Messiri", family: "'El Messiri', sans-serif", category: "أنيق • عصري" },
+      { name: "Almarai", family: "'Almarai', sans-serif", category: "بسيط • واضح" },
+      // أضف أي خطوط أخرى تريدها هنا
+    ];
 
-fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions.json")
-.then(response => response.json())
-.then(data => {
-    allBooks = data;
-    displayBooks(allBooks);
-});
+    const container = document.getElementById("fonts-container");
+    const demoInput = document.getElementById("demo-text");
+    const fontSizeSlider = document.getElementById("font-size");
+    const sizeValue = document.getElementById("size-value");
 
-function displayBooks(books){
-    const container = document.getElementById("books");
-    container.innerHTML = "";
-    books.forEach(book => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-            <h3>${book.name}</h3>
-            <p>اللغة: ${book.language}</p>
-        `;
-        container.appendChild(card);
+    // عرض جميع الخطوط
+    fonts.forEach(font => {
+      const card = document.createElement("div");
+      card.className = "font-card";
+      card.innerHTML = `
+        <div class="font-name">\( {font.name} <small>( \){font.category})</small></div>
+        <div class="preview" style="font-family: ${font.family};">
+          ${demoInput.value || "الحمد لله رب العالمين"}
+        </div>
+      `;
+      container.appendChild(card);
     });
-}
 
-document.getElementById("search").addEventListener("input", function(){
-    const value = this.value.toLowerCase();
-    const filtered = allBooks.filter(book => 
-        book.name.toLowerCase().includes(value)
-    );
-    displayBooks(filtered);
-});
-</script>
+    // تحديث النصوص عند الكتابة
+    demoInput.addEventListener("input", updatePreviews);
+
+    // تحديث حجم النص
+    fontSizeSlider.addEventListener("input", () => {
+      sizeValue.textContent = fontSizeSlider.value;
+      updatePreviews();
+    });
+
+    function updatePreviews() {
+      const text = demoInput.value || "الحمد لله رب العالمين";
+      const size = fontSizeSlider.value + "px";
+
+      document.querySelectorAll(".preview").forEach(preview => {
+        preview.textContent = text;
+        preview.style.fontSize = size;
+      });
+    }
+  </script>
 
 </body>
 </html>
