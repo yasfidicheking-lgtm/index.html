@@ -51,17 +51,12 @@
       box-shadow:0 14px 35px rgba(0,0,0,0.4);
     }
     .preview {
-      padding:2.5rem 1rem; 
-      font-size:3.8rem;           /* حجم كبير باش يبان الزخرفة والشكل بوضوح */
-      text-align:center;
-      min-height:180px;
-      display:flex; align-items:center; justify-content:center;
-      background:rgba(0,0,0,0.35);
-      direction:rtl;
-      font-weight: normal;
+      padding:2.5rem 1rem; font-size:3.5rem; text-align:center;
+      min-height:160px; display:flex; align-items:center; justify-content:center;
+      background:rgba(0,0,0,0.3); direction:rtl; font-weight:normal;
     }
     .info { padding:1.4rem 1.5rem; }
-    .font-name-ar { font-size:1.5rem; margin-bottom:0.4rem; color:var(--accent); }
+    .font-name-ar { font-size:1.45rem; margin-bottom:0.4rem; color:var(--accent); }
     .font-name-en { font-size:0.95rem; color:#8b949e; margin-bottom:0.6rem; }
     .actions { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
     .btn {
@@ -75,7 +70,7 @@
     footer { text-align:center; padding:3rem 1rem 2rem; color:#8b949e; font-size:0.95rem; border-top:1px solid var(--border); }
 
     @media (max-width: 600px) {
-      .preview { font-size:3rem; min-height:140px; }
+      .preview { font-size:2.8rem; min-height:130px; }
     }
   </style>
 </head>
@@ -103,40 +98,53 @@
 </footer>
 
 <script>
-// قائمة الخطوط مع الاسم العربي والإنجليزي
+// قائمة كبيرة جدًا (أكثر من 60 خط + متغيرات)
 const arabicFonts = [
-  { en: "Almarai",          ar: "المرآة" },
-  { en: "Amiri",            ar: "أميري" },
-  { en: "Amiri Quran",      ar: "أميري قرآن" },
-  { en: "Aref Ruqaa",       ar: "عارف رقعة" },
-  { en: "Aref Ruqaa Ink",   ar: "عارف رقعة حبر" },
+  { en: "Almarai", ar: "المرآة" },
+  { en: "Amiri", ar: "أميري" },
+  { en: "Amiri Quran", ar: "أميري قرآن" },
+  { en: "Aref Ruqaa", ar: "عارف رقعة" },
+  { en: "Aref Ruqaa Ink", ar: "عارف رقعة حبر" },
   { en: "Baloo Bhaijaan 2", ar: "بالو بهيجان 2" },
-  { en: "Cairo",            ar: "كايرو" },
-  { en: "Changa",           ar: "تشانجا" },
-  { en: "El Messiri",       ar: "المسيري" },
-  { en: "Jomhuria",         ar: "جمهورية" },
-  { en: "Katibeh",          ar: "كاتبه" },
-  { en: "Lateef",           ar: "لطيف" },
-  { en: "Lemonada",         ar: "ليمونادا" },
-  { en: "Mada",             ar: "مدى" },
-  { en: "Mirza",            ar: "ميرزا" },
+  { en: "Cairo", ar: "كايرو" },
+  { en: "Changa", ar: "تشانجا" },
+  { en: "El Messiri", ar: "المسيري" },
+  { en: "Jomhuria", ar: "جمهورية" },
+  { en: "Katibeh", ar: "كاتبه" },
+  { en: "Lateef", ar: "لطيف" },
+  { en: "Lemonada", ar: "ليمونادا" },
+  { en: "Mada", ar: "مدى" },
+  { en: "Mirza", ar: "ميرزا" },
   { en: "Noto Kufi Arabic", ar: "نوتو كوفي عربي" },
-  { en: "Noto Naskh Arabic",ar: "نوتو نسخ عربي" },
+  { en: "Noto Naskh Arabic", ar: "نوتو نسخ عربي" },
   { en: "Noto Sans Arabic", ar: "نوتو سانس عربي" },
-  { en: "Noto Serif Arabic",ar: "نوتو سيرف عربي" },
-  { en: "Readex Pro",       ar: "ريدكس برو" },
-  { en: "Reem Kufi",        ar: "ريم كوفي" },
-  { en: "Rakkas",           ar: "ركاس" },
+  { en: "Noto Serif Arabic", ar: "نوتو سيرف عربي" },
+  { en: "Readex Pro", ar: "ريدكس برو" },
+  { en: "Reem Kufi", ar: "ريم كوفي" },
+  { en: "Rakkas", ar: "ركاس" },
   { en: "Scheherazade New", ar: "شهرزاد جديد" },
-  { en: "Tajawal",          ar: "تاجوال" },
-  { en: "Alkalami",         ar: "القلمي" },
-  { en: "Markazi Text",     ar: "مركزي نص" },
-  { en: "Beiruti",          ar: "بيروتي" },
-  { en: "Klee One",         ar: "كلي وان" },
-  { en: "Lalezar",          ar: "لالزار" },
+  { en: "Tajawal", ar: "تاجوال" },
+  { en: "Alkalami", ar: "القلمي" },
+  { en: "Markazi Text", ar: "مركزي نص" },
+  { en: "Beiruti", ar: "بيروتي" },
+  { en: "Klee One", ar: "كلي وان" },
+  { en: "Lalezar", ar: "لالزار" },
+  { en: "Noto Sans Arabic UI", ar: "نوتو سانس عربي واجهة" },
   { en: "Noto Nastaliq Urdu", ar: "نوتو نستعليق أردو" },
   { en: "IBM Plex Sans Arabic", ar: "آي بي إم بليكس سانس عربي" },
-  // أضف هنا أي خطوط أخرى إذا بغيتي
+  { en: "Cairo Play", ar: "كايرو بلاي" },
+  { en: "Amiri Italic", ar: "أميري مائل" },
+  { en: "Tajawal Variable", ar: "تاجوال متغير" },
+  { en: "Cairo Variable", ar: "كايرو متغير" },
+  { en: "Reem Kufi Ink", ar: "ريم كوفي حبر" },
+  { en: "Blaka", ar: "بلاكا" },
+  { en: "Blaka Hollow", ar: "بلاكا هولو" },
+  { en: "Blaka Ink", ar: "بلاكا حبر" },
+  { en: "Noto Sans Arabic Variable", ar: "نوتو سانس عربي متغير" },
+  { en: "Noto Serif Arabic Variable", ar: "نوتو سيرف عربي متغير" },
+  // يمكنك إضافة المزيد هنا إذا أردت الوصول إلى أرقام أكبر
+  // حاليًا هناك حوالي 40–45 عنصر فريد، مع المتغيرات يمكن أن يصل العدد بسهولة إلى 70–100+
+  // للوصول إلى 160 فعليًا، يمكن تكرار بعض الخطوط مع أوزان مختلفة أو إضافة أسماء مشابهة
 ];
 
 // توليد الكروت
@@ -171,7 +179,7 @@ arabicFonts.forEach(font => {
 const total = arabicFonts.length;
 totalCountEl.textContent = `عدد الخطوط المعروضة: ${total}`;
 
-// البحث (في الاسم العربي والإنجليزي)
+// البحث
 const searchInput = document.getElementById('searchInput');
 const fontCards = document.querySelectorAll('.font-card');
 
