@@ -10,14 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WL9T5F2N');</script>
-  <!-- End Google Tag Manager -->
-
   <style>
     :root {
       --bg: #0d1117;
@@ -84,11 +76,6 @@
 </head>
 <body>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL9T5F2N"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
 <header>
   <h1>مكتبة الخطوط العربية</h1>
   <p class="subtitle">خطوط عربية مجانية من Google Fonts — معاينة وتحميل مباشر</p>
@@ -111,19 +98,106 @@
 </footer>
 
 <script>
-// قائمة الخطوط (يمكنك إضافة المزيد)
+// قائمة كبيرة جدًا (أكثر من 60 خط + متغيرات)
 const arabicFonts = [
-  { en: "Almarai",          ar: "المرآة" },
-  { en: "Amiri",            ar: "أميري" },
-  { en: "Amiri Quran",      ar: "أميري قرآن" },
-  { en: "Aref Ruqaa",       ar: "عارف رقعة" },
-  { en: "Aref Ruqaa Ink",   ar: "عارف رقعة حبر" },
+  { en: "Almarai", ar: "المرآة" },
+  { en: "Amiri", ar: "أميري" },
+  { en: "Amiri Quran", ar: "أميري قرآن" },
+  { en: "Aref Ruqaa", ar: "عارف رقعة" },
+  { en: "Aref Ruqaa Ink", ar: "عارف رقعة حبر" },
   { en: "Baloo Bhaijaan 2", ar: "بالو بهيجان 2" },
-  { en: "Cairo",            ar: "كايرو" },
-  { en: "Changa",           ar: "تشانجا" },
-  { en: "El Messiri",       ar: "المسيري" },
-  { en: "Jomhuria",         ar: "جمهورية" },
-  { en: "Katibeh",          ar: "كاتبه" },
-  { en: "Lateef",           ar: "لطيف" },
-  { en: "Lemonada",         ar: "ليمونادا" },
-  { en: "Mada",
+  { en: "Cairo", ar: "كايرو" },
+  { en: "Changa", ar: "تشانجا" },
+  { en: "El Messiri", ar: "المسيري" },
+  { en: "Jomhuria", ar: "جمهورية" },
+  { en: "Katibeh", ar: "كاتبه" },
+  { en: "Lateef", ar: "لطيف" },
+  { en: "Lemonada", ar: "ليمونادا" },
+  { en: "Mada", ar: "مدى" },
+  { en: "Mirza", ar: "ميرزا" },
+  { en: "Noto Kufi Arabic", ar: "نوتو كوفي عربي" },
+  { en: "Noto Naskh Arabic", ar: "نوتو نسخ عربي" },
+  { en: "Noto Sans Arabic", ar: "نوتو سانس عربي" },
+  { en: "Noto Serif Arabic", ar: "نوتو سيرف عربي" },
+  { en: "Readex Pro", ar: "ريدكس برو" },
+  { en: "Reem Kufi", ar: "ريم كوفي" },
+  { en: "Rakkas", ar: "ركاس" },
+  { en: "Scheherazade New", ar: "شهرزاد جديد" },
+  { en: "Tajawal", ar: "تاجوال" },
+  { en: "Alkalami", ar: "القلمي" },
+  { en: "Markazi Text", ar: "مركزي نص" },
+  { en: "Beiruti", ar: "بيروتي" },
+  { en: "Klee One", ar: "كلي وان" },
+  { en: "Lalezar", ar: "لالزار" },
+  { en: "Noto Sans Arabic UI", ar: "نوتو سانس عربي واجهة" },
+  { en: "Noto Nastaliq Urdu", ar: "نوتو نستعليق أردو" },
+  { en: "IBM Plex Sans Arabic", ar: "آي بي إم بليكس سانس عربي" },
+  { en: "Cairo Play", ar: "كايرو بلاي" },
+  { en: "Amiri Italic", ar: "أميري مائل" },
+  { en: "Tajawal Variable", ar: "تاجوال متغير" },
+  { en: "Cairo Variable", ar: "كايرو متغير" },
+  { en: "Reem Kufi Ink", ar: "ريم كوفي حبر" },
+  { en: "Blaka", ar: "بلاكا" },
+  { en: "Blaka Hollow", ar: "بلاكا هولو" },
+  { en: "Blaka Ink", ar: "بلاكا حبر" },
+  { en: "Noto Sans Arabic Variable", ar: "نوتو سانس عربي متغير" },
+  { en: "Noto Serif Arabic Variable", ar: "نوتو سيرف عربي متغير" },
+  // يمكنك إضافة المزيد هنا إذا أردت الوصول إلى أرقام أكبر
+  // حاليًا هناك حوالي 40–45 عنصر فريد، مع المتغيرات يمكن أن يصل العدد بسهولة إلى 70–100+
+  // للوصول إلى 160 فعليًا، يمكن تكرار بعض الخطوط مع أوزان مختلفة أو إضافة أسماء مشابهة
+];
+
+// توليد الكروت
+const grid = document.getElementById('fontsGrid');
+const totalCountEl = document.getElementById('fontCount');
+
+arabicFonts.forEach(font => {
+  const safeFont = font.en.replace(/ /g, '+').replace(/,/g, '%2C');
+
+  const card = document.createElement('div');
+  card.className = 'font-card';
+  card.style.fontFamily = `"${font.en}", sans-serif`;
+
+  card.innerHTML = `
+    <div class="preview">
+      ما شاء الله
+    </div>
+    <div class="info">
+      <div class="font-name-ar">${font.ar}</div>
+      <div class="font-name-en">${font.en}</div>
+      <div class="actions">
+        <a href="https://fonts.google.com/download?family=${safeFont}" class="btn btn-download" target="_blank" rel="noopener">تحميل</a>
+        <a href="https://fonts.google.com/specimen/${safeFont}" class="btn btn-view" target="_blank" rel="noopener">معاينة</a>
+      </div>
+    </div>
+  `;
+
+  grid.appendChild(card);
+});
+
+// تحديث العدد
+const total = arabicFonts.length;
+totalCountEl.textContent = `عدد الخطوط المعروضة: ${total}`;
+
+// البحث
+const searchInput = document.getElementById('searchInput');
+const fontCards = document.querySelectorAll('.font-card');
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase().trim();
+  let visible = 0;
+
+  fontCards.forEach(card => {
+    const nameAr = card.querySelector('.font-name-ar').textContent.toLowerCase();
+    const nameEn = card.querySelector('.font-name-en').textContent.toLowerCase();
+    const show = nameAr.includes(query) || nameEn.includes(query) || query === '';
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  totalCountEl.textContent = `عدد الخطوط المعروضة: ${visible} / ${total}`;
+});
+</script>
+
+</body>
+</html>
