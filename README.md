@@ -132,7 +132,6 @@
   <script>
     let allBooks = [];
 
-    // تحميل البيانات
     fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions.json")
       .then(res => {
         if (!res.ok) throw new Error("مشكلة في جلب البيانات");
@@ -148,7 +147,6 @@
           '<p style="text-align:center; color:#e53e3e; padding:2rem;">حدث خطأ أثناء تحميل الكتب. حاول لاحقًا.</p>';
       });
 
-    // عرض الكتب
     function displayBooks(books) {
       const container = document.getElementById("books");
       container.innerHTML = "";
@@ -170,13 +168,12 @@
       });
     }
 
-    // البحث المباشر (أثناء الكتابة)
     document.getElementById("search").addEventListener("input", function() {
       const value = this.value.trim().toLowerCase();
       const filtered = allBooks.filter(book =>
-        book.name?.toLowerCase().includes(value) ||
-        book.language?.toLowerCase().includes(value) ||
-        book.author?.toLowerCase().includes(value)
+        (book.name || "").toLowerCase().includes(value) ||
+        (book.language || "").toLowerCase().includes(value) ||
+        (book.author || "").toLowerCase().includes(value)
       );
       displayBooks(filtered);
     });
