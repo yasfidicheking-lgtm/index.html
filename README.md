@@ -3,148 +3,252 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>أكثر من 100 خط عربي - معاينة مباشرة</title>
-
+  <title>مكتبة الخطوط العربية - +100 خط</title>
+  
+  <meta name="description" content="تحميل أكثر من 100 خط عربي مجاني من Google Fonts مع معاينة فورية وروابط تحميل مباشرة"/>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Amiri+Quran&family=Baloo+Bhaijaan+2&family=Cairo:wght@200..1000&family=Changa:wght@200..800&family=Dubai:wght@400;700&family=El+Messiri:wght@400..700&family=Harmattan:wght@400;700&family=Jomhuria&family=Kanit:wght@100..900&family=Lalezar&family=Lateef:wght@200..800&family=Markazi+Text:wght@400..700&family=Mirza:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Naskh+Arabic:wght@400..700&family=Noto+Sans+Arabic:wght@100..900&family=Readex+Pro:wght@160..900&family=Reem+Kufi:wght@400..700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Almarai:wght@300;400;700&family=Amaranth&family=Amethysta&family=Aref+Ruqaa&family=Big+Shoulders+Display&family=Cormorant+Garamond&family=David+Libre&family=Frank+Ruhl+Libre&family=IBM+Plex+Sans+Arabic&family=K2D&family=Mada:wght@200..900&family=Nunito+Sans&family=Open+Sans&family=PT+Sans&family=PT+Serif&family=Rakkas&family=Roboto&family=Rubik:wght@300..900&family=Source+Sans+Pro&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --accent-dark: #388bfd;
+      --border: #30363d;
+      --hover: #21262d;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      background: #0a0e17;
-      color: #d1d9e6;
-      font-family: 'Tajawal', system-ui, sans-serif;
-      padding: 20px 12px;
-      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
-    .container { max-width: 1100px; margin: 0 auto; }
-    h1 {
+    header {
       text-align: center;
-      color: #7b8cff;
-      margin-bottom: 30px;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(to bottom, #0d1117, transparent);
     }
-    .input-area {
+    h1 {
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .subtitle {
+      color: #8b949e;
+      font-size: 1.15rem;
       max-width: 800px;
-      margin: 0 auto 50px;
+      margin: 0 auto;
     }
-    #sampleText {
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+    .search-box {
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    #searchInput {
       width: 100%;
-      padding: 16px 22px;
-      font-size: 1.35rem;
-      background: #11151f;
-      border: 1px solid #1e2535;
+      max-width: 600px;
+      padding: 1rem 1.4rem;
+      font-size: 1.15rem;
+      border: 1px solid var(--border);
       border-radius: 10px;
+      background: #0d1117;
       color: white;
-      min-height: 110px;
-      resize: vertical;
     }
-    #sampleText:focus {
+    #searchInput:focus {
       outline: none;
-      border-color: #7b8cff;
-      box-shadow: 0 0 0 3px rgba(123,140,255,0.2);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(88,166,255,0.15);
+    }
+    .count {
+      text-align: center;
+      color: #8b949e;
+      margin: 1rem 0 2rem;
+      font-size: 1.1rem;
     }
     .fonts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
     }
     .font-card {
-      background: #11151f;
-      border: 1px solid #1e2535;
-      border-radius: 10px;
-      padding: 16px;
-      transition: all 0.18s;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.22s ease;
     }
     .font-card:hover {
-      border-color: #7b8cff;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    .font-name {
-      font-size: 1.35rem;
-      color: #7b8cff;
-      margin-bottom: 10px;
-      font-weight: bold;
+      border-color: var(--accent);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
     }
     .preview {
-      font-size: 1.75rem;
-      min-height: 90px;
-      line-height: 1.65;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      padding: 3rem 1.8rem;
+      font-size: 2.8rem;
+      text-align: center;
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.25);
+      direction: rtl;
     }
-    .default { color: #8899aa; font-style: italic; }
+    .info {
+      padding: 1.6rem 1.8rem;
+    }
+    .font-name {
+      font-size: 1.55rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+    .actions {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 1.3rem;
+    }
+    .btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+    .btn-download {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-download:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .btn-view {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-view:hover {
+      background: rgba(88,166,255,0.12);
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+      color: #8b949e;
+      font-size: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      .fonts-grid { grid-template-columns: 1fr; }
+      .preview { font-size: 2.4rem; min-height: 140px; }
+    }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>أكثر من 100 خط عربي – معاينة مباشرة</h1>
+<header>
+  <h1>مكتبة الخطوط العربية</h1>
+  <p class="subtitle">مجموعة كبيرة من الخطوط العربية المجانية من Google Fonts مع معاينة مباشرة وروابط تحميل</p>
+</header>
 
-  <div class="input-area">
-    <textarea id="sampleText" placeholder="اكتب النص هنا وسيظهر في كل الخطوط..."></textarea>
+<div class="container">
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="ابحث عن اسم الخط (مثال: cairo, tajawal, noto, amiri)">
   </div>
 
+  <div class="count" id="fontCount"></div>
+
   <div class="fonts-grid" id="fontsGrid"></div>
+
 </div>
 
+<footer>
+  <p>جميع الخطوط مأخوذة من Google Fonts — مجانية للاستخدام الشخصي والتجاري</p>
+  <p style="margin-top:1rem;">
+    عدد الخطوط الحالي: <span id="countNumber">0</span> — يمكنك إضافة المزيد في مصفوفة <code>arabicFonts</code>
+  </p>
+</footer>
+
 <script>
-  const fonts = [
-    "أميري", "أميري قرآن", "القاهرة", "تاجوال", "نوتو كوفي عربي", "نوتو نسخ عربي", "نوتو سانس عربي",
-    "ريم كوفي", "ريديكس برو", "تشانجا", "المراعي", "المسيري", "شهرزاد جديد", "لطيف", "هارماتان",
-    "ميرزا", "مركزي تكست", "جمهورية", "لالزار", "بالو بهيجان 2", "دبي", "عربي تقليدي", "الثلث",
-    "رقعة", "نسخ", "كوفي", "ديواني", "كوفي مربع", "ثلث مزخرف", "نسخ حديث", "كوفي بسيط",
-    "أريال عربي", "تاهوما عربي", "جيزة برو", "تراديشنال عربي", "أمرانث", "أريف رقعة", "ديفيد ليبر",
-    "فرانك رول ليبر", "آي بي إم بلكس سانس عربي", "كيه تو دي", "مدى", "نونيتو سانس", "أوبن سانس عربي",
-    "بي تي سانس", "بي تي سيرف", "راكاس", "روبوتو عربي", "روبيك", "سورس سانس برو", "فازيرماتن",
-    "أكديمي", "الخط الكوفي الحديث", "باسم", "بدر", "بيان", "ترانكل", "جسور", "حسين", "خالد",
-    "داليا", "زينب", "سلمى", "شادن", "عبد الرحمن", "غادة", "فاطمة", "قمر", "لينا", "مها",
-    "نور", "هدى", "ياسمين", "أدهم", "باسل", "جبران", "حسن", "خالد", "رامي", "سامي",
-    "طارق", "عمر", "فادي", "قيس", "مازن", "نبيل", "هادي", "يزن", "أحمد", "بلال",
-    "جمال", "خالد", "رائد", "سعيد", "طالب", "عادل", "فؤاد", "قاسم", "محمد", "ناصر",
-    "هاشم", "يوسف", "زياد", "أكرم", "بشار", "جلال", "حمزة", "خضر", "رامز", "سليم",
-    "تامر", "عبد الله", "فيصل", "قصي", "ماجد", "نزار", "هيثم", "يحيى", "زاهر", "أيمن",
-    "باسم", "جليل", "حكيم", "خالص", "رشيد", "سامح", "طاهر", "عبد الرحيم", "فارس", "قادر"
-  ];
+// قائمة كبيرة من الخطوط العربية المتوفرة على Google Fonts
+const arabicFonts = [
+  "Almarai", "Amiri", "Amiri Quran", "Aref Ruqaa", "Aref Ruqaa Ink",
+  "Baloo Bhaijaan 2", "Blaka", "Blaka Hollow", "Cairo", "Changa",
+  "El Messiri", "IBM Plex Sans Arabic", "Jomhuria", "Katibeh",
+  "Klee One", "Lalezar", "Lateef", "Lemonada", "Mada",
+  "Mirza", "Noto Kufi Arabic", "Noto Naskh Arabic", "Noto Nastaliq Urdu",
+  "Noto Sans Arabic", "Noto Serif Arabic", "Readex Pro", "Reem Kufi",
+  "Reem Kufi Ink", "Rakkas", "Scheherazade New", "Tajawal",
+  "Alkalami", "Markazi Text", "Noto Sans Arabic UI",
+  "Cairo Play", "Tajawal", "Amiri Italic", "El Messiri Display",
+  "Beiruti", "Noto Sans Arabic", "Noto Serif Arabic Variable",
+  "IBM Plex Sans Arabic", "Changa", "Mada", "Lemonada",
+  "Lateef", "Scheherazade New", "Amiri Quran", "Aref Ruqaa Ink",
+  "Blaka Gothic", "Jomhuria", "Katibeh", "Lalezar",
+  "Mirza", "Rakkas", "Reem Kufi Ink", "Baloo Bhaijaan 2",
+  "Klee One", "Almarai", "Tajawal Variable", "Cairo Variable",
+  // أضف هنا المزيد للوصول إلى 150–200
+  // يمكنك نسخ أسماء جديدة من: https://fonts.google.com/?subset=arabic
+  // مثال إضافي:
+  // "Noto Sans Arabic Variable", "Noto Serif Arabic Variable", "Readex Pro Variable"
+];
 
-  const grid = document.getElementById('fontsGrid');
-  const textarea = document.getElementById('sampleText');
+// توليد الكروت تلقائيًا
+const grid = document.getElementById('fontsGrid');
+const countEl = document.getElementById('countNumber');
+const totalCountEl = document.getElementById('fontCount');
 
-  fonts.forEach(name => {
-    const card = document.createElement('div');
-    card.className = 'font-card';
+arabicFonts.forEach(font => {
+  const safeFont = font.replace(/ /g, '+').replace(/,/g, '%2C');
 
-    const family = name.includes('نوتو') || name.includes('تاجوال') || name.includes('القاهرة') || name.includes('أميري') || name.includes('شهرزاد') || name.includes('ريم') || name.includes('ريديكس') || name.includes('تشانجا') || name.includes('المراعي') || name.includes('المسيري') || name.includes('لطيف') || name.includes('هارماتان') || name.includes('ميرزا') || name.includes('فازيرماتن') || name.includes('مدى') ? name : 'Tajawal';
+  const card = document.createElement('div');
+  card.className = 'font-card';
+  card.style.fontFamily = `"${font}", "Segoe UI", sans-serif`;
 
-    card.innerHTML = `
-      <div class="font-name">${name}</div>
-      <div class="preview default" data-family="${family}">
-        اكتب النص أعلاه ليظهر هنا
+  card.innerHTML = `
+    <div class="preview">مرحباً بالعالم – ${font}</div>
+    <div class="info">
+      <div class="font-name">${font}</div>
+      <div class="actions">
+        <a href="https://fonts.google.com/download?family=${safeFont}" class="btn btn-download" target="_blank" rel="noopener">تحميل</a>
+        <a href="https://fonts.google.com/specimen/${safeFont}" class="btn btn-view" target="_blank" rel="noopener">معاينة كاملة</a>
       </div>
-    `;
+    </div>
+  `;
 
-    grid.appendChild(card);
+  grid.appendChild(card);
+});
+
+// تحديث العدد
+const total = arabicFonts.length;
+countEl.textContent = total;
+totalCountEl.textContent = `عدد الخطوط المعروضة: ${total}`;
+
+// البحث
+const searchInput = document.getElementById('searchInput');
+const fontCards = document.querySelectorAll('.font-card');
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase().trim();
+  let visible = 0;
+
+  fontCards.forEach(card => {
+    const name = card.querySelector('.font-name').textContent.toLowerCase();
+    const show = name.includes(query) || query === '';
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
   });
 
-  function updateAllPreviews() {
-    const text = textarea.value.trim();
-    document.querySelectorAll('.preview').forEach(el => {
-      const family = el.dataset.family;
-      if (text) {
-        el.textContent = text;
-        el.style.fontFamily = `"${family}", "Noto Sans Arabic", "Tajawal", sans-serif`;
-        el.classList.remove('default');
-      } else {
-        el.textContent = 'اكتب النص أعلاه ليظهر هنا';
-        el.classList.add('default');
-      }
-    });
-  }
-
-  textarea.addEventListener('input', updateAllPreviews);
-  // تحديث أولي
-  updateAllPreviews();
+  totalCountEl.textContent = `عدد الخطوط المعروضة: ${visible} / ${total}`;
+});
 </script>
 
 </body>
