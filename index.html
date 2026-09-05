@@ -3,134 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitGoal - نظامك الرياضي الشخصي</title>
+  <title>بوابة التلميذ - مشروع مدرسي</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>FitGoal</h1>
-      <p>نظامك الرياضي والغذائي الشخصي</p>
-    </div>
-  </header>
 
-  <main class="container">
-    <!-- فورم الحساب -->
-    <section class="card" id="calculator-section">
-      <h2>أحسب نظامك</h2>
-      <form id="fitness-form">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="weight">الوزن (كغ)</label>
-            <input type="number" id="weight" min="30" max="250" step="0.1" required placeholder="مثلاً 75">
-          </div>
+  <!-- صفحة تسجيل الدخول -->
+  <div id="login-page" class="page">
+    <div class="login-box">
+      <div class="logo">بوابة التلميذ</div>
+      <p class="subtitle">مشروع مدرسي - غير رسمي</p>
 
-          <div class="form-group">
-            <label for="height">الطول (سم)</label>
-            <input type="number" id="height" min="120" max="230" required placeholder="مثلاً 175">
-          </div>
-
-          <div class="form-group">
-            <label for="age">العمر</label>
-            <input type="number" id="age" min="15" max="80" required placeholder="مثلاً 25">
-          </div>
-
-          <div class="form-group">
-            <label for="gender">الجنس</label>
-            <select id="gender" required>
-              <option value="">اختر</option>
-              <option value="male">رجل</option>
-              <option value="female">امرأة</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="activity">مستوى النشاط</label>
-            <select id="activity" required>
-              <option value="">اختر</option>
-              <option value="1.2">قليل الحركة (مكتبي)</option>
-              <option value="1.375">خفيف (1-3 أيام تمارين)</option>
-              <option value="1.55">متوسط (3-5 أيام تمارين)</option>
-              <option value="1.725">عالي (6-7 أيام تمارين)</option>
-              <option value="1.9">رياضي محترف</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="goal">الهدف</label>
-            <select id="goal" required>
-              <option value="">اختر هدفك</option>
-              <option value="lose">تنقيص الوزن</option>
-              <option value="maintain">تثبيت الوزن</option>
-              <option value="gain">زيادة العضلات</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-primary">احسب نظامي</button>
-      </form>
-    </section>
-
-    <!-- النتائج -->
-    <section class="card hidden" id="results-section">
-      <h2>نتيجتك</h2>
-      
-      <div class="results-grid">
-        <div class="result-box">
-          <span class="label">السعرات الأساسية (BMR)</span>
-          <span class="value" id="bmr-value">0</span>
-          <span class="unit">سعرة</span>
-        </div>
-        <div class="result-box">
-          <span class="label">السعرات اليومية (TDEE)</span>
-          <span class="value" id="tdee-value">0</span>
-          <span class="unit">سعرة</span>
-        </div>
-        <div class="result-box highlight">
-          <span class="label">السعرات المستهدفة</span>
-          <span class="value" id="target-value">0</span>
-          <span class="unit">سعرة / يوم</span>
-        </div>
-      </div>
-
-      <div class="plan-section">
-        <h3>نظام التمارين المقترح</h3>
-        <div id="workout-plan" class="plan-content"></div>
-      </div>
-
-      <div class="plan-section">
-        <h3>نظام غذائي أسبوعي (نموذج)</h3>
-        <div id="diet-plan" class="plan-content"></div>
-      </div>
-
-      <button class="btn-secondary" onclick="resetForm()">حساب من جديد</button>
-    </section>
-
-    <!-- تتبع التقدم -->
-    <section class="card" id="progress-section">
-      <h2>تتبع التقدم</h2>
-      
-      <div class="progress-form">
+      <form id="login-form">
         <div class="form-group">
-          <label for="progress-weight">الوزن الحالي (كغ)</label>
-          <input type="number" id="progress-weight" step="0.1" placeholder="سجل وزنك اليوم">
+          <label>اسم المستخدم</label>
+          <input type="text" id="username" placeholder="مثال: student01" required>
         </div>
-        <button class="btn-primary" onclick="saveProgress()">حفظ</button>
-      </div>
+        <div class="form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        </div>
+        <button type="submit" class="btn">تسجيل الدخول</button>
+      </form>
 
-      <div id="progress-list" class="progress-list">
-        <p class="empty-msg">ما كاين حتى تسجيل دابا. سجل وزنك الأول!</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FitGoal — نسخة تجريبية مجانية | صُنع بحب 💪</p>
+      <p class="hint">للتجربة: username = <b>eleve</b> | password = <b>1234</b></p>
     </div>
-  </footer>
+  </div>
+
+  <!-- لوحة التحكم -->
+  <div id="dashboard" class="page hidden">
+    <header class="header">
+      <div class="header-right">
+        <span class="student-name" id="student-name">أحمد بن علي</span>
+        <button id="logout-btn" class="btn-logout">خروج</button>
+      </div>
+      <div class="header-left">بوابة التلميذ</div>
+    </header>
+
+    <div class="container">
+      <!-- بطاقة المعلومات -->
+      <div class="card info-card">
+        <h2>معلومات التلميذ</h2>
+        <div class="info-grid">
+          <div><span>الاسم الكامل:</span> أحمد بن علي</div>
+          <div><span>المستوى:</span> الثانية باك علوم</div>
+          <div><span>المؤسسة:</span> ثانوية ابن خلدون</div>
+          <div><span>رقم التلميذ:</span> 2024-1587</div>
+        </div>
+      </div>
+
+      <!-- النقط -->
+      <div class="card">
+        <h2>نقط المراقبة المستمرة</h2>
+        <table class="grades-table">
+          <thead>
+            <tr>
+              <th>المادة</th>
+              <th>الفرض 1</th>
+              <th>الفرض 2</th>
+              <th>المعدل</th>
+            </tr>
+          </thead>
+          <tbody id="grades-body">
+            <!-- سيتم ملؤها بالجافاسكريبت -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- الغيابات -->
+      <div class="card">
+        <h2>الغيابات</h2>
+        <ul class="absence-list" id="absence-list">
+          <!-- سيتم ملؤها بالجافاسكريبت -->
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
-        </html>
+</html>
